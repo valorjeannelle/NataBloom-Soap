@@ -1,0 +1,927 @@
+
+:root {
+    /* Couleurs principales */
+    --vert: #587A50;
+    --vert-clair: #8FAF78;
+    --orange-fonce: #C66A2B;
+
+    /* Tons naturels */
+    --beige: #F3E7D3;
+    --marron-caramel: #B87945;
+    --sable: #E4D0AE;
+
+    /* Couleurs complémentaires */
+    --creme: #FFF9F0;
+    --marron-fonce: #5A3D2B;
+    --blanc: #FFFFFF;
+
+    /* Utilisation dans le site */
+    --couleur-principale: var(--vert);
+    --couleur-secondaire: var(--orange-fonce);
+    --couleur-fond: var(--creme);
+    --couleur-carte: var(--beige);
+    --couleur-accent: var(--marron-caramel);
+    --couleur-texte: var(--marron-fonce);
+    --couleur-douce: var(--sable);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+    color: #38352d;
+    background-color: #fffaf3;
+}
+
+
+header {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+
+    margin: 12px 4%;
+    padding: 18px 5%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+
+    /* Glassmorphisme léger */
+    background: rgba(243, 231, 211, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 18px;
+
+    /* Effet légèrement détaché de la page */
+    box-shadow:
+        0 8px 24px rgba(90, 61, 43, 0.09),
+        0 2px 6px rgba(90, 61, 43, 0.04);
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+header:hover {
+    background: rgba(243, 231, 211, 0.9);
+    box-shadow:
+        0 12px 30px rgba(90, 61, 43, 0.13),
+        0 4px 10px rgba(90, 61, 43, 0.05);
+}
+
+/* Navigation */
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+header nav a {
+    position: relative;
+    display: inline-block;
+    padding: 8px 0;
+
+    color: var(--marron-fonce);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.96rem;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Trait qui se dessine au survol */
+header nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+
+    width: 100%;
+    height: 2px;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        var(--marron-fonce),
+        var(--orange-fonce)
+    );
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+header nav a:hover {
+    color: var(--vert);
+    transform: translateY(-2px);
+}
+
+header nav a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Accessibilité : navigation au clavier */
+header nav a:focus-visible {
+    outline: 2px solid var(--vert);
+    outline-offset: 5px;
+    border-radius: 3px;
+}
+
+
+
+header h1 {
+    color: #536747;
+    font-size: 1.8rem;
+}
+
+header span {
+    color: #b58b48;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+}
+
+
+/* Bouton hamburger */
+.menu-hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+/* Taille de l'image SVG */
+.menu-hamburger img {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: #38352d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #b58b48;
+}
+
+section {
+    padding: 65px 7%;
+}
+
+#hero {
+    min-height: 100vh;
+    padding: 90px 8%;
+    box-sizing: border-box;
+
+    background-image: 
+        linear-gradient(rgba(40, 50, 30, 0.507), rgba(40, 50, 30, 0.35)),
+        url("images/soap_backgound.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+#hero h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color:var(--orange-fonce);
+    margin-bottom: 18px;
+}
+
+#hero p {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    color: var(--sable);
+}
+
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 14px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        var(--vert),
+        #3F633B
+    );
+
+    color: var(--blanc);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+
+    box-shadow:
+        0 7px 18px rgba(63, 99, 59, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+      
+}
+
+/* Reflet lumineux */
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+    transition: left 0.65s ease;
+    z-index: -1;
+}
+
+/* Petit mouvement au survol */
+button:hover{
+    transform: translateY(-4px);
+    background: linear-gradient(
+        135deg,
+        var(--orange-fonce),
+        var(--marron-caramel)
+    );
+
+    box-shadow:
+        0 12px 26px rgba(90, 61, 43, 0.22),
+        0 4px 10px rgba(198, 106, 43, 0.15);
+}
+
+button:hover::before {
+    left: 150%;
+}
+
+/* Clic */
+button:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Navigation au clavier */
+button:focus-visible {
+    outline: 3px solid var(--orange-fonce);
+    outline-offset: 4px;
+}
+
+/* Lien des bouton */
+button a{
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--blanc);
+}
+
+
+#produits {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    padding: 100px 7% 150px;
+
+    background:
+        linear-gradient(
+            rgba(243, 231, 211, 0.78),
+            rgba(228, 208, 174, 0.88)
+        ),
+        url("images/second-soap.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Le contenu reste au-dessus du décor */
+#produits > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Titre */
+#produits h2 {
+    color: var(--marron-fonce);
+    text-align: center;
+    margin-bottom: 45px;
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+
+
+/* TITRE DE LA SECTION */
+.titre-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.titre-section h2 {
+    font-family: Georgia, serif;
+    color: var(--vert);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 12px;
+}
+
+.titre-section p {
+    max-width: 650px;
+    margin: auto;
+    color: var(--marron-fonce);
+    line-height: 1.7;
+}
+
+
+
+/* GRILLE DES TROIS CARTES */
+.cartes-produits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    align-items: stretch;
+}
+
+/* STRUCTURE DE LA CARTE */
+.carte {
+    min-width: 0;
+    height: 430px;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* CONTENU */
+.carte-interieur {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;}
+
+
+/* RECTO */
+.carte-recto {
+    width: 100%;
+    height: 100%;
+    padding: 18px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    background-color: var(--creme);
+    border: 1px solid var(--sable);
+    border-radius: 14px;
+    box-shadow: 0 5px 16px rgba(90, 61, 43, 0.08);
+
+    overflow: hidden;
+
+    
+    position: absolute;
+    inset: 0;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+}
+
+/* IMAGE */
+.carte-recto img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    flex-shrink: 0;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 9px;
+    margin-bottom: 16px;
+  
+}
+
+/* NOM DU SAVON */
+.carte-recto h3 {
+    margin: 0 0 10px;
+    color: var(--marron-caramel);
+    font-family: Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: normal;
+}
+
+
+
+/* FORMAT */
+.carte-recto .format {
+    margin: 4px 0;
+    color: var(--marron-fonce);
+    font-size: 0.88rem;
+}
+
+/* INVITATION AU CLIC */
+.carte-recto .indice {
+    margin-top: auto;
+    padding-top: 12px;
+    color: var(--orange-fonce);
+    font-size: 0.82rem;
+    text-decoration: underline;
+    text-decoration-color: var(--sable);
+    text-underline-offset: 4px;
+}
+
+/* SURVOL */
+.carte:hover {
+    transform: translateY(-4px);
+}
+
+
+/* VERSO : COMPOSITION DU SAVON */
+.carte-verso {
+    position: absolute;
+    inset: 0;
+    padding: 22px;
+    box-sizing: border-box;
+
+    background-color: var(--vert);
+    color: var(--creme);
+
+    border: 1px solid var(--vert-clair);
+    border-radius: 14px;
+
+    box-shadow: 0 5px 16px rgba(90, 61, 43, 0.10);
+
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* TITRE */
+.carte-verso h3 {
+    font-family: Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: normal;
+    color: var(--beige);
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--vert-clair);
+}
+
+/* DESCRIPTION */
+.carte-verso p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin: 0 0 14px;
+}
+
+/* LISTE DES INGRÉDIENTS */
+.carte-verso ul {
+    padding-left: 20px;
+    margin: 12px 0;
+}
+
+.carte-verso li {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+/* MOTS IMPORTANTS */
+.carte-verso strong {
+    color: var(--beige);
+}
+
+
+/* RETOURNEMENT AU CLIC */
+.carte.retournee .carte-interieur {
+    transform: rotateY(180deg);
+}
+
+/*Modal*/
+/* Arrière-plan du modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(90, 61, 43, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    padding: 20px;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+
+    background: rgba(255, 249, 240, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 24px;
+
+    box-shadow: 0 15px 45px rgba(90, 61, 43, 0.2);
+}
+ 
+/* Carte individuelle */
+.soap-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.soap-card {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+}
+
+.soap-card img {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    height: 190px;
+    object-fit: cover;
+    object-position: center;
+    border: 3px solid var(--marron-caramel);
+    border-radius: 18px;
+    padding: 4px;
+    box-shadow: 0 4px 12px rgba(90, 61, 43, 0.18);
+    margin: 0 auto;
+}
+/* Centrer le bouton Fermer */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-content .soap-container {
+    width: 100%;
+}
+
+.modal-content button {
+    margin-top: 20px;
+}
+
+/* Format du savon */
+.soap-card p:first-of-type {
+    color: var(--marron-fonce);
+    font-size: 15px;
+    font-weight: 600;
+    margin: 15px 0 8px;
+}
+
+/* Prix */
+.soap-card p:last-of-type {
+    color: var(--orange-fonce);
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0;
+}
+
+
+
+
+/* Conteneur principal dde la section commande de la section */
+.commander {
+    padding: 60px 20px;
+    background-color: var(--couleur-fond);
+}
+
+/* Utilisation de Flexbox pour mettre l'image à gauche et le texte à droite */
+.commander-contenu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Style de la partie image */
+.commander-image {
+    flex: 1;
+}
+
+.commander-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(90, 61, 43, 0.1);
+}
+
+/* Style de la partie texte */
+.commander-texte {
+    flex: 1;
+}
+
+.commander-texte h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: var(--couleur-principale);
+}
+
+.commander-texte p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: var(--couleur-texte);
+}
+
+
+/* Information */
+#informations {
+    background-color: #eee3d0;
+}
+
+.infos-grille {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 230px), 1fr)
+    );
+    gap: 22px;
+}
+
+.info {
+    padding: 25px;
+    background: white;
+    border-radius: 15px;
+}
+
+.info h3 {
+    color: #536747;
+    margin-bottom: 10px;
+}
+
+.info p {
+    font-size: 0.93rem;
+}
+
+.note {
+    max-width: 850px;
+    margin: 25px auto 0;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+footer {
+    padding: 35px 7%;
+    text-align: center;
+    color: white;
+    background: #303c2d;
+}
+
+footer h2 {
+    font-family: Georgia, serif;
+    margin-bottom: 10px;
+}
+
+
+/* ACCESSIBILITÉ */
+@media (prefers-reduced-motion: reduce) {
+    .carte,
+    .carte-interieur,
+    .carte-recto img {
+        transition: none;
+    }
+}
+/* Effet au toucher sur téléphone */
+@media (hover: none) and (pointer: coarse) {
+    button:active,
+    .bouton-commande:active,
+    header nav a:active {
+        background-color: var(--orange-fonce);
+        color: var(--creme);
+        transform: scale(0.97);
+        transition: background-color 0.15s ease,
+                    transform 0.15s ease;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .carte-interieur {
+        transition: none;
+    }
+}
+
+/* TÉLÉPHONE */
+@media (max-width: 600px) {
+     header {
+        justify-content: center;
+        text-align: center;
+    }
+
+  
+
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    section {
+        padding: 45px 6%;
+    }
+
+    #hero {
+        padding: 60px 6%;
+    }
+    .cartes-produits {
+        gap: 22px;
+    }
+
+    .carte {
+        height: 410px;
+    }
+
+    .carte-recto,
+    .carte-verso {
+        padding: 20px;
+    }
+  
+
+.modal-content .soap-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.modal-content .soap-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: none;
+    border-bottom: 2px solid var(--marron-caramel);
+    padding: 0 0 20px;
+}
+
+.modal-content .soap-card:last-child {
+    border-bottom: none;
+}
+
+.modal-content .soap-card img {
+    width: 100%;
+    max-width: 250px;
+    height: 190px;
+}
+    .commander {
+        padding: 40px 18px;
+    }
+    .commander-contenu {
+        flex-direction: column;
+        text-align: center;
+    }
+    .commander h2 {
+        font-size: 1.6rem;
+    }
+
+    .btn-commander {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+
+@media (max-width: 768px) {
+    header#accueil {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .menu-hamburger {
+        display: block;
+    }
+
+    header#accueil nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 0;
+    }
+
+    header#accueil nav.ouvert {
+        display: flex;
+    }
+        .cartes-produits {
+        gap: 22px;
+    }
+    /* Modal sur petit écran */
+    .modal-content .soap-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .modal-content .soap-card {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-right: none;
+        border-bottom: 2px solid var(--marron-caramel);
+        padding: 0 0 20px;
+    }
+
+    .modal-content .soap-card:last-child {
+        border-bottom: none;
+    }
+
+    .modal-content .soap-card img {
+        width: 100%;
+        max-width: 250px;
+        height: 190px;
+    }
+}
+
+/* Tablette */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .modal-content {
+        max-width: 700px;
+        padding: 25px;
+    }
+
+    .soap-container {
+        gap: 18px;
+    }
+
+    .soap-card {
+        padding: 12px;
+    }
+
+    .soap-card img {
+        max-width: 200px;
+        height: 170px;
+    }
+}

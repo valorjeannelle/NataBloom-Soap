@@ -41,6 +41,11 @@ cd natabloom-soap
 
 Les visiteurs peuvent contacter NataBloom Soap directement via WhatsApp depuis le site pour obtenir des informations ou passer une commande.
 
+## 🌸 Démo
+
+Découvrez NataBloom Soap en ligne :
+
+👉 [Visiter le site](https://valorjeannelle.github.io/NataBloom-Soap/)
 ---
 
 *Développé avec soin pour NataBloom Soap.* 🌿

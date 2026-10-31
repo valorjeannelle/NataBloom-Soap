@@ -18,17 +18,6 @@
 - **CSS3** : mise en page, animations et design responsive.
 - **JavaScript** : interactions et comportements dynamiques.
 
-## 📁 Structure du projet
-
-```text
-natabloom-soap/
-│
-├── index.html
-├── style.css
-├── script.js
-├── images/
-└── README.md
-```
 
 *Adapte cette arborescence aux noms et dossiers réellement présents dans ton projet.*
 
